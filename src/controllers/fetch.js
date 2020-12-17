@@ -19,7 +19,8 @@ const Fetch = (url, method, sendData, callback, failed) => {
   	request = {
   		method: method,
   		headers: Object.assign(authorization, {
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				'Accept': 'application/json'
 			}),
 			body: JSON.stringify(sendData)
   	}

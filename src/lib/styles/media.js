@@ -1,5 +1,5 @@
 export const mediaQuery = (maxWidth) => `
-	@media (max-width: ${maxWidth}px)
+	@media screen and (max-width: ${maxWidth}px)
 `;
 
 const media = {

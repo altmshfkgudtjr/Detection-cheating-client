@@ -1,44 +1,131 @@
 import { keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
-	0% { opacity: 0; }
-	100% { opacity: 1;}
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 `;
+
 const fadeOut = keyframes`
-	0% { opacity: 1; }
-	100% { opacity: 0; }
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 `;
+
+const fadeInCenter = keyframes`
+	0% {
+		opacity: 0;
+		transform: scale(.5, .5);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1, 1);
+	}
+`;
+
+const fadeOutCenter = keyframes`
+	0% {
+		opacity: 1;
+		transform: scale(1, 1);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(.5, .5);
+	}
+`;
+
 const fadeInTop = keyframes`
-	0% { opacity: 0; top: -100%; }
-	100% { opacity: 1; top: 0px; }
+	0% {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 `;
+
 const fadeOutTop = keyframes`
-	0% { opacity: 1; bottom: 0px; }
-	100% { opacity: 0; bottom: -100%; }
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
 `;
+
 const fadeInBottom = keyframes`
-	0% { opacity: 0; bottom: -100%; }
-	100% { opacity: 1; bottom: 0px; }
+	0% {
+		opacity: 0;
+		transform: translateY(80px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 `;
+
 const fadeOutBottom = keyframes`
-	0% { opacity: 1; bottom: 0px; }
-	100% { opacity: 0; bottom: -100%; }
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
 `;
-const fadeInLeft = keyframes`
-	0% { opacity: 0; left: -100%; }
-	100% { opacity: 1; left: 0px; }
-`;
-const fadeOutLeft = keyframes`
-	0% { opacity: 1; left: 0px; }
-	100% { opacity: 0; left: -100%; }
-`;
+
 const fadeInRight = keyframes`
-	0% { opacity: 0; right: -100%; }
-	100% { opacity: 1; right: 0px; }
+	0% {
+		opacity: 0;
+		transform: translateX(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
 `;
+
 const fadeOutRight = keyframes`
-	0% { opacity: 1; right: 0px; }
-	100% { opacity: 0; right: -100%; }
+	0% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	100% {
+		opacity: 0;
+		transform: translateX(20px);
+	}
+`;
+
+const fadeInLeft = keyframes`
+	0% {
+		opacity: 0;
+		transform: translateX(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+`;
+
+const fadeOutLeft = keyframes`
+	0% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	100% {
+		opacity: 0;
+		transform: translateX(-20px);
+	}
 `;
 const zoomIn = keyframes`
 	0% { opacity: 0; transform: scale(.5, .5); }
@@ -54,14 +141,11 @@ const tooltip = keyframes`
 	50% { opacity: 1; } 
 	100% { opacity: 1; }
 `;
-const pulse = keyframes`
-	0% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7); }
-	70% { box-shadow: 0 0 0 10px rgba(0, 123, 255, 0); }
-	100% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
-`;
 const animations = {
 	fadeIn,
 	fadeOut,
+	fadeInCenter,
+	fadeOutCenter,
 	fadeInLeft,
 	fadeOutLeft,
 	fadeInRight,
@@ -72,8 +156,7 @@ const animations = {
 	fadeOutBottom,
 	zoomIn,
 	zoomOut,
-	tooltip,
-	pulse
+	tooltip
 };
 
 export default animations

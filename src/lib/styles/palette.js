@@ -11,6 +11,9 @@
   8:   40%
 */
 const palette = {
+  /* white, black */
+  white: '#ffffff',
+  black: '#000000',
   /* gray */
   gray0: '#f7f6f3',
   gray1: '#eeeceb',
@@ -27,7 +30,7 @@ const palette = {
   red2: '#ee9aa2',
   red3: '#e56874',
   red4: '#dc3545',
-  red5: '#bb2d3b',
+  red5: '#bb2d3b',  
   red6: '#9a2530',
   red7: '#6e1b23',
   red8: '#58151c',
@@ -71,6 +74,13 @@ const palette = {
   blue6: '#003e80',
   blue7: '#001f40',
   blue8: '#001226',
+  /* IOS palette */
+  red: '#FF3B30',
+  orange: '#FF9500',
+  yellow: '#FFCC00',
+  green: '#34C759',
+  blue: '#007AFF',
+  sejong: '#CA0224'
 };
 
 export default palette

@@ -49,9 +49,10 @@ const ModalBackground = styled.div`
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	background-color: rgba(249, 249, 249, 0.85);	// Set background color
+	background-color: rgba(0, 0, 0, .16);
+	backdrop-filter: blur(8px);
 	z-index: ${zIndex.modal};
-	animation: ${animations.fadeIn} .2s;
+	animation: ${animations.fadeIn} .4s;
 `;
 
 export default Modal
