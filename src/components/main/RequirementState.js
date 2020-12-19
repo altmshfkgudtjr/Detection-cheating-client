@@ -29,7 +29,7 @@ const IconWrapper = styled.div`
 			? palette.green
 			: palette.gray2
 		};
-		transition: .1s ${styles.transition};
+		transition: .3s ${styles.transition};
 	}
 
 	${media.small} {

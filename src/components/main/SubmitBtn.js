@@ -25,6 +25,7 @@ const Btn = styled.button`
 		height: 40px;
 		line-height: 40px;
 		font-size: 14px;
+		border-radius: 12px;
 	}
 
 	&:hover {

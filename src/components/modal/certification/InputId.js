@@ -4,12 +4,13 @@ import styled from 'styled-components'
 import palette from 'lib/styles/palette'
 import * as styles from 'lib/styles/styles'
 
-const InputId = ({ placeholder, onKeyUp }) => {
+const InputId = ({ placeholder, onKeyUp }, ref) => {
 	return <Content type="text"
 									placeholder={placeholder}
 									onKeyUp={onKeyUp}
 									maxLength={50}
-									autoFocus />
+									autoFocus
+									ref={ref} />
 }
 
 const Content = styled.input`
@@ -27,4 +28,4 @@ const Content = styled.input`
 	}
 `;
 
-export default InputId
+export default React.forwardRef(InputId)

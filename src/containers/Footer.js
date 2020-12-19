@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 // containers
 import ManagerLoginModal from 'containers/modal/ManagerLogin'
@@ -11,9 +11,10 @@ import { pushModal } from 'modules/modal'
 
 const Footer = () => {
 	const dispatch = useDispatch();
+	const manager_value = useSelector(state => state.auth.manager_value);
 
 	// TODO: Redux를 통한 로그인 여부 구현
-	const isLogin = false;
+	const isLogin = manager_value;
 
 	const onClick = () => {
 		dispatch(pushModal('MANAGERLOGIN', ManagerLoginModal));

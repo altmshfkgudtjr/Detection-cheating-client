@@ -4,11 +4,12 @@ import styled from 'styled-components'
 import palette from 'lib/styles/palette'
 import * as styles from 'lib/styles/styles'
 
-const InputPw = ({ placeholder, onKeyUp }) => {
+const InputPw = ({ placeholder, onKeyUp }, ref) => {
 	return <Content type="password"
 									placeholder={placeholder}
 									onKeyUp={onKeyUp}
-									maxLength={100} />
+									maxLength={100}
+									ref={ref} />
 }
 
 const Content = styled.input`
@@ -26,4 +27,4 @@ const Content = styled.input`
 	}
 `;
 
-export default InputPw
+export default React.forwardRef(InputPw)

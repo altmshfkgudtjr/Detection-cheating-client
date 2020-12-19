@@ -11,11 +11,17 @@ import RequirementState from 'components/main/RequirementState'
 // modules
 import { pushModal } from 'modules/modal'
 
-const Certification = () => {
+const Certification = ({ valid, setValid }) => {
 	const dispatch = useDispatch();
 
 	const onClick = () => {
-		dispatch(pushModal('CERTIFICATION', CertificationModal));
+		dispatch(pushModal(
+			'CERTIFICATION',
+			CertificationModal, 
+			{
+				setValid: setValid
+			}
+		));
 	}
 
 	return (
@@ -23,7 +29,7 @@ const Certification = () => {
 			<RequirementInfo message="세종대학교 구성원 인증이 필요합니다" />
 			<RequirementBody>
 				<RequirementBtn color="red" message="학생 인증" onClick={onClick} />
-				<RequirementState state={false} />
+				<RequirementState state={valid} />
 			</RequirementBody>
 		</RequirementWrapper>
 	);
