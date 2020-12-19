@@ -20,7 +20,7 @@ const Container = styled.div`
 	width: 100%;
 	max-width: 1000px;
 	min-height: calc(100vh - 160px);
-	margin: 80px auto 40px auto;
+	margin: 80px auto 120px auto;
 	background-color: ${palette.white};
 	border-radius: 16px;
 	box-shadow: ${styles.boxShadow.regular};

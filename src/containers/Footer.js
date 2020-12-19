@@ -13,23 +13,20 @@ const Footer = () => {
 	const dispatch = useDispatch();
 	const manager_value = useSelector(state => state.auth.manager_value);
 
-	// TODO: Redux를 통한 로그인 여부 구현
-	const isLogin = manager_value;
-
 	const onClick = () => {
 		dispatch(pushModal('MANAGERLOGIN', ManagerLoginModal));
 	}
 
 	return (
 		<Container>
-			{!isLogin && <ManagerLogin onClick={onClick} />}
+			{!manager_value && <ManagerLogin onClick={onClick} />}
 			<Copyright />			
 		</Container>
 	);
 }
 
 const Container = styled.div`
-	margin: 100px auto 60px auto;
+	margin: 0 auto 60px auto;
 	text-align: center;
 `;
 
