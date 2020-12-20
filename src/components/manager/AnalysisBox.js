@@ -29,7 +29,7 @@ const AnalysisBox = ({ icon, title, full=false, children }) => {
 
 const Container = styled.div`
 	min-width: 400px;
-	max-width: 800px;
+	/*max-width: 800px;*/
 	flex-grow: 1;
 	height: 300px;
 	background-color: ${palette.white};

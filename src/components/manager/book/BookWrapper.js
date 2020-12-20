@@ -35,7 +35,7 @@ const Container = styled.div`
 	transition: .4s ${styles.transition};
 
 	${media.small} {
-		position: absolute;
+		position: fixed;
 		width: 100vw;
 		max-width: 1000px;
 		height: 100vh;
