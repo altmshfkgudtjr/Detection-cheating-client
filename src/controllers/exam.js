@@ -30,3 +30,15 @@ export const GetStudentExam = (id=null) => {
 		}
 	});
 }
+
+export const ScroeExam = (student_number, pass, reason) => {
+	const sendData = { student_number, pass };
+
+	return Fetch('/api/score', 'POST', sendData).then(res => {
+		if (res.state === 'success') {
+			return res.result;
+		} else {
+			return Promise.reject();
+		}
+	});
+}

@@ -16,14 +16,25 @@ export const submitExam = (id, pw, pcapngFile, videoFile) => dispatch => {
 export const getStudent = (id) => dispatch => {
 	return examAPI.GetStudentExam(id).then(data => {
 		dispatch(setStudent(data));
+		return true;
 	}).catch(e => {
 		dispatch(newSnackbar("잠시 후 시도해주세요", "warning"));
+		return false;
 	});
 }
 
 export const getStudentList = () => dispatch => {
 	return examAPI.GetStudentExam().then(data => {
 		dispatch(setStudentList(data));
+	}).catch(e => {
+		dispatch(newSnackbar("잠시 후 시도해주세요", "warning"));
+	});
+}
+
+export const scoreExam = (id, pass, reason) => dispatch => {
+	return examAPI.ScroeExam(id, pass, reason).then(data => {
+		dispatch(newSnackbar("평가가 완료되었습니다", "success"));
+		dispatch(getStudentList());
 	}).catch(e => {
 		dispatch(newSnackbar("잠시 후 시도해주세요", "warning"));
 	});
@@ -45,7 +56,44 @@ export const setStudentList = (data) => ({ type: SET_STUDENT_LIST, payload: data
 */
 const initialState = {
 	selected_student: null,
-	student_list: []
+	student_list: [
+		{
+			student_number: 12345678,
+			name: '홍길동',
+			video_path: '',
+			audio_path: '',
+			state: 'pass',
+			reason: '',
+			network_result: [],
+			audio_result: [],
+			audo_img_path: '',
+			eye_result: true
+		},
+		{
+			student_number: 18000011,
+			name: '김철수',
+			video_path: '',
+			audio_path: '',
+			state: 'notyet',
+			reason: '',
+			network_result: [],
+			audio_result: [],
+			audo_img_path: '',
+			eye_result: true
+		},
+		{
+			student_number: 13210013,
+			name: '김영희',
+			video_path: '',
+			audio_path: '',
+			state: 'rejected',
+			reason: '',
+			network_result: [],
+			audio_result: [],
+			audo_img_path: '',
+			eye_result: true
+		}
+	]
 };
 
 

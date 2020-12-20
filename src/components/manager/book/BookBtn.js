@@ -26,7 +26,7 @@ const Btn = styled.button`
 	display: none;
 	position: absolute;
 	right: 10px;
-	top: 10px;
+	top: 20px;
 	width: 40px;
 	height: 40px;
 	padding: 0;

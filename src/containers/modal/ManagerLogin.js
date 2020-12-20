@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 // components
 import MiniModalWrapper from 'components/modal/MiniModalWrapper'
@@ -14,6 +15,7 @@ import { managerLogin } from 'modules/auth'
 import { newSnackbar } from 'modules/snackbar'
 
 const ManagerLogin = ({ PreventModalOff, ModalOff }) => {
+	const history = useHistory();
 	const dispatch = useDispatch();
 	const idRef = useRef(null);
 	const pwRef = useRef(null);
@@ -74,8 +76,12 @@ const ManagerLogin = ({ PreventModalOff, ModalOff }) => {
 
 		setLoading(true);
 		dispatch(managerLogin(id, pw))
-		.then(() => {
+		.then(res => {
 			setLoading(false);
+			
+			if (res) {
+				history.push('/manager');
+			}
 		});
 	}
 

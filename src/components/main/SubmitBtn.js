@@ -26,6 +26,7 @@ const Btn = styled.button`
 		line-height: 40px;
 		font-size: 14px;
 		border-radius: 12px;
+		margin-top: 40px;
 	}
 
 	&:hover {

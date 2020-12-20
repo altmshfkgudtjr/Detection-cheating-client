@@ -24,11 +24,14 @@ export const managerLogin = (id, pw) => dispatch => {
 	.then(res => {
 		if (res) {
 			dispatch(newSnackbar("반갑습니다", "success"));
+			return true;
 		} else {
 			dispatch(newSnackbar("잘못된 아이디 또는 암호입니다", "success"));
+			return false;
 		}
 	}).catch(e => {
 		dispatch(newSnackbar("잠시 후 시도해주세요", "warning"));
+		return false;
 	});
 }
 

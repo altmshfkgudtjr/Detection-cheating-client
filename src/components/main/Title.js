@@ -19,6 +19,10 @@ const Title = ({ title, subTitle, info }) => {
 const Container = styled.div`
 	margin-top: -32px;
 	margin-bottom: 120px;
+
+	${media.small} {
+		margin-bottom: 80px;
+	}
 `;
 
 const SubTitle = styled.h2`
@@ -39,6 +43,7 @@ const MainTitle = styled.h1`
 
 	${media.small} {
 		font-size: 48px;
+		margin-bottom: 30px;
 	}
 `;
 
@@ -46,6 +51,12 @@ const Info = styled.h3`
 	margin: 0;
 	white-space: pre-wrap;
 	word-break: keep-all;
+
+	${media.small} {
+		& > span {
+			font-size: 14px;
+		}
+	}
 `;
 
 export default Title

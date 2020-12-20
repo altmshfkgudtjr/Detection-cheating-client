@@ -17,6 +17,7 @@ const ManagerPage = () => {
 			<Board />
 			<Book />
 		</Layout>
+
 		<Footer />
 	</>);
 }
