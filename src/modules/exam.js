@@ -55,7 +55,18 @@ export const setStudentList = (data) => ({ type: SET_STUDENT_LIST, payload: data
 	InitialState
 */
 const initialState = {
-	selected_student: null,
+	selected_student: {
+		student_number: 12345678,
+		name: '홍길동',
+		video_path: '',
+		audio_path: '',
+		state: 'pass',
+		reason: '',
+		network_result: ['Google','Naver','Daum','KaKaoTalk','Discord','Youtube','Github'],
+		audio_result: [],
+		audo_img_path: '',
+		eye_result: true
+	},
 	student_list: [
 		{
 			student_number: 12345678,

@@ -22,6 +22,7 @@ const AnalysisBox = ({ icon, title, full=false, children }) => {
 				{Icon && <Icon />}
 				{title && <Title>{title}</Title>}
 			</Titlewrapper>
+			{children}
 		</Container>
 	);
 }

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 // containers
 import ReasonModal from 'containers/modal/Reason'
+import Network from 'containers/manager/board/Network'
 // components
 import BoardWrapper from 'components/manager/BoardWrapper'
 import BoardLayout from 'components/manager/BoardLayout'
@@ -62,7 +63,9 @@ const Board = () => {
 						 info={`우측 메뉴을 통해서 특정 학생의 시험데이터를 검토할 수 있습니다.\n검토를 완료한 뒤, 통과 여부를 결정해주세요.`} />
 			<BoardLayout>
 				<AnalysisWrapper>
-					<AnalysisBox icon="network" title="네트워크 분석" />
+					<AnalysisBox icon="network" title="네트워크 분석">
+						<Network/>
+					</AnalysisBox>
 					<AnalysisBox icon="audio" title="오디오 분석" />
 					<AnalysisBox icon="video" title="비디오 분석" />
 					<AnalysisBox full={true} />

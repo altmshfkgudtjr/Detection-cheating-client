@@ -20,10 +20,8 @@ const Book = () => {
 
 	const onClickMenu = () => {
 		if (show) {
-			// 끌때
 			document.body.style.overflow = '';
 		} else {
-			// 켤때
 			document.body.style.overflow = 'hidden';
 		}
 		setShow(!show);
