@@ -4,9 +4,9 @@ import styled from 'styled-components'
 import media from 'lib/styles/media'
 import palette from 'lib/styles/palette'
 
-const ManagerLogin = ({ onClick }) => {
+const ManagerLogin = ({ onClick, message }) => {
 	return (<>
-		<Btn onClick={onClick}>관리자 로그인</Btn>
+		<Btn onClick={onClick}>{message}</Btn>
 		<Bar>|</Bar>
 	</>);
 }

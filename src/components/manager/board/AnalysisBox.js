@@ -18,10 +18,10 @@ const AnalysisBox = ({ icon, title, full=false, children }) => {
 
 	return (
 		<Container full={full}>
-			<Titlewrapper>
+			{!full && <Titlewrapper>
 				{Icon && <Icon />}
 				{title && <Title>{title}</Title>}
-			</Titlewrapper>
+			</Titlewrapper>}
 			{children}
 		</Container>
 	);
@@ -29,10 +29,12 @@ const AnalysisBox = ({ icon, title, full=false, children }) => {
 
 const Container = styled.div`
 	min-width: 400px;
-	/*max-width: 800px;*/
 	flex-grow: 1;
 	height: 300px;
-	background-color: ${palette.white};
+	background-color: ${props => props.full
+		? 'black'
+		: palette.white
+	};
 	border-radius: 12px;
 	box-shadow: ${styles.boxShadow.regular};
 	box-sizing: border-box;
@@ -40,11 +42,22 @@ const Container = styled.div`
 		? '0'
 		: '20px'
 	};
+	overflow: hidden;
+
+	&:nth-child(1) { flex: 2 1 0; }
+	&:nth-child(2) { flex: 4 1 auto; position: relative; }
+	&:nth-child(3) { flex: 1 1 0; }
+	&:nth-child(4) { flex: 1 1 0; }
 
 	${media.small} {
 		min-width: 100%;
 		height: auto;
-		min-height: 200px;
+		min-height: 160px;
+
+		&:nth-child(1) { flex: 1 1 auto; }
+		&:nth-child(2) { flex: 1 1 auto; }
+		&:nth-child(3) { flex: 1 1 auto; }
+		&:nth-child(4) { flex: 1 1 auto; }
 	}
 `;
 
@@ -60,8 +73,6 @@ const Titlewrapper = styled.div`
 	}
 
 	${media.small} {
-		margin-bottom: 10px;
-
 		& > svg {
 			width: 20px;
 			height: 20px;

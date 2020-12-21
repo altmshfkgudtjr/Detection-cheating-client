@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 // containers
 import ReasonModal from 'containers/modal/Reason'
-import Network from 'containers/manager/board/Network'
+import Network from 'containers/manager/analysis/Network'
+import Audio from 'containers/manager/analysis/Audio'
 // components
-import BoardWrapper from 'components/manager/BoardWrapper'
-import BoardLayout from 'components/manager/BoardLayout'
+import BoardWrapper from 'components/manager/board/BoardWrapper'
+import BoardLayout from 'components/manager/board/BoardLayout'
 import Title from 'components/manager/Title'
-import AnalysisWrapper from 'components/manager/AnalysisWrapper'
-import AnalysisBox from 'components/manager/AnalysisBox'
+import AnalysisWrapper from 'components/manager/board/AnalysisWrapper'
+import AnalysisBox from 'components/manager/board/AnalysisBox'
 import SubmitBtnWrapper from 'components/manager/SubmitBtnWrapper'
 import SubmitBtn from 'components/manager/SubmitBtn'
+import Video from 'components/manager/analysis/Video'
 // modules
-import { scoreExam } from 'modules/exam'
+import { scoreExam, getStudentList } from 'modules/exam'
 import { pushModal } from 'modules/modal'
 import { newSnackbar } from 'modules/snackbar'
 
@@ -23,13 +25,14 @@ const Board = () => {
 	const targetStudent = useSelector(state => state.exam.selected_student);
 	const manager_value = useSelector(state => state.auth.manager_value);
 	const [loading, setLoading] = useState(false);
+	const videoRef = useRef(null);
 	
 	const onPass = () => {
 		if (!targetStudent) {
 			dispatch(newSnackbar("먼저 학생을 선택해주세요", "error"));
 			return;
 		} else if (loading) {
-			dispatch(newSnackbar("잠시만 기다려주세요", "error"));
+			dispatch(newSnackbar("제출 중입니다", "error"));
 		} else {
 			setLoading(true);
 			dispatch(scoreExam(targetStudent.student_number, true, ''))
@@ -50,10 +53,10 @@ const Board = () => {
 
 	useEffect(() => {
 		if (manager_value) {
-			console.log("Logined");
+			dispatch(getStudentList());
 		} else {
 			dispatch(newSnackbar("관리자 인증을 먼저 해주세요", "warning"));
-			// history.push('/');
+			history.push('/');
 		}
 	}, [dispatch, manager_value, history]);
 
@@ -66,9 +69,13 @@ const Board = () => {
 					<AnalysisBox icon="network" title="네트워크 분석">
 						<Network/>
 					</AnalysisBox>
-					<AnalysisBox icon="audio" title="오디오 분석" />
+					<AnalysisBox icon="audio" title="오디오 분석" >
+						<Audio videoRef={videoRef} />
+					</AnalysisBox>
 					<AnalysisBox icon="video" title="비디오 분석" />
-					<AnalysisBox full={true} />
+					<AnalysisBox full={true}>
+						<Video src={targetStudent.video_path} ref={videoRef} />
+					</AnalysisBox>
 				</AnalysisWrapper>
 				
 				<SubmitBtnWrapper>

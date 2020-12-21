@@ -58,13 +58,15 @@ const initialState = {
 	selected_student: {
 		student_number: 12345678,
 		name: '홍길동',
-		video_path: '',
+		video_path: '/videos/dynamite.mp4',
 		audio_path: '',
 		state: 'pass',
 		reason: '',
 		network_result: ['Google','Naver','Daum','KaKaoTalk','Discord','Youtube','Github'],
-		audio_result: [],
-		audo_img_path: '',
+		audio_result: [[64, 78], [114, 128], [150, 178]],
+		audio_messages: ['가나다라', '1번 답이 뭐야?', '아 왜 이렇게 어렵냐'],
+		audio_playtime: 197.7,
+		audio_img_path: '/images/waveform.png',
 		eye_result: true
 	},
 	student_list: [
@@ -77,7 +79,7 @@ const initialState = {
 			reason: '',
 			network_result: [],
 			audio_result: [],
-			audo_img_path: '',
+			audio_img_path: '',
 			eye_result: true
 		},
 		{
@@ -89,7 +91,7 @@ const initialState = {
 			reason: '',
 			network_result: [],
 			audio_result: [],
-			audo_img_path: '',
+			audio_img_path: '',
 			eye_result: true
 		},
 		{
@@ -101,7 +103,7 @@ const initialState = {
 			reason: '',
 			network_result: [],
 			audio_result: [],
-			audo_img_path: '',
+			audio_img_path: '',
 			eye_result: true
 		}
 	]

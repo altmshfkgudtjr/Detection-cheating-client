@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 // components
-import IconWrapper from 'components/manager/network/IconWrapper'
-import Icon from 'components/manager/network/Icon'
+import IconWrapper from 'components/manager/analysis/network/IconWrapper'
+import Icon from 'components/manager/analysis/network/Icon'
 
 const Network = () => {
 	const student = useSelector(state => state.exam.selected_student);
