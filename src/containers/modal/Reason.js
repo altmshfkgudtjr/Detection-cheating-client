@@ -37,7 +37,7 @@ const Reason = ({ PreventModalOff, ModalOff }) => {
 	const onKeyUp = (e) => {
 		if (!e.target) return;
 		if (e.keyCode === 13) {
-			onSubmit();
+			// onSubmit();
 		} else {
 			setReason(e.target.value);
 		}
