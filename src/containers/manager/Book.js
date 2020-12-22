@@ -40,11 +40,11 @@ const Book = () => {
 	}
 
 	const StudentList = studentList.map(
-		data => <Student key={data.student_number}
-										 onClick={() => onClickStudent(data.student_number)}
-										 state={data.state}
-										 info={`${data.student_number} ${data.name}`}
-										 selected={selectedId === data.student_number} />
+		(data, idx) => <Student key={data.student_number}
+										 				onClick={() => onClickStudent(data.student_number)}
+										 				state={data.state}
+										 				info={`${data.student_number} ${data.name}`}
+										 				selected={selectedId === data.student_number} />
 	);
 
 	useEffect(() => {

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
 // components
 import IconWrapper from 'components/manager/analysis/network/IconWrapper'
 import Icon from 'components/manager/analysis/network/Icon'
+import TimeInfo from 'components/manager/analysis/network/TimeInfo'
 import EmptyMessage from 'components/manager/analysis/EmptyMessage'
 
-const Network = () => {
-	const student = useSelector(state => state.exam.selected_student);
+const Network = ({ student }) => {
 	const [empty, setEmpty] = useState(true);
 	const results = !!student && !!student.network_result
 		? student.network_result
@@ -14,7 +13,7 @@ const Network = () => {
 	;
 
 	useEffect(() => {
-		if (!student.network_result) {
+		if (student.network_result.length === 0) {
 			setEmpty(true);
 		} else {
 			setEmpty(false);
@@ -26,6 +25,7 @@ const Network = () => {
 	);
 
 	return (<>
+		<TimeInfo start={student.time_range[0]} end={student.time_range[1]} />
 		{!empty && <IconWrapper>
 			{IconList}
 		</IconWrapper>}

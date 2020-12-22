@@ -7,7 +7,7 @@ export const SubmitExam = (id, pw, pcapngFile, videoFile) => {
 	sendData.append('pcapng', pcapngFile);
 	sendData.append('mp4', videoFile);
 
-	return Fetch('/api/exam', 'POST', sendData).then(res => {
+	return Fetch('/api/exam', 'POST', sendData, true).then(res => {
 		if (res.state === 'success') {
 			return res.result;
 		} else {
@@ -19,7 +19,7 @@ export const SubmitExam = (id, pw, pcapngFile, videoFile) => {
 export const GetStudentExam = (id=null) => {
 	const url = id
 		? `/api/student/${id}`
-		: `/api/student`
+		: `/api/student/`
 	;
 
 	return Fetch(url, 'GET').then(res => {

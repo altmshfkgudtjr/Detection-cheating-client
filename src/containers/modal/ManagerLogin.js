@@ -80,6 +80,7 @@ const ManagerLogin = ({ PreventModalOff, ModalOff }) => {
 		.then(res => {
 			if (!mountedRef.current) return;
 			setLoading(false);
+			ModalOff();
 			
 			if (res) {
 				history.push('/manager');

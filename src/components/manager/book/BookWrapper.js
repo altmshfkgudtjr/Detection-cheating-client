@@ -33,6 +33,7 @@ const Container = styled.div`
 	box-shadow: ${styles.boxShadow.regular};
 	border-radius: 12px;
 	transition: .4s ${styles.transition};
+	overflow-y: overlay;
 
 	${media.small} {
 		position: fixed;
@@ -48,6 +49,21 @@ const Container = styled.div`
 		margin-right: 0px;
 		border-radius: 12px 0 0 12px;
 		z-index: 10;
+	}
+
+	&::-webkit-scrollbar {
+		width: 6px;
+		background: transparent;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: #ddd;
+		border-radius: 10px;
+	}
+	&::-webkit-scrollbar-thumb:hover {
+		background: #ccc;
+	}
+	&::-webkit-scrollbar-track {
+		background: transparent;
 	}
 `;
 

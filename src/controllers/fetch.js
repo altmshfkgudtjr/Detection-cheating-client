@@ -1,4 +1,4 @@
-const Fetch = (url, method, sendData, callback, failed) => {
+const Fetch = (url, method, sendData, isFile, callback, failed) => {
 	/* Auto Authroization */
 	const token = localStorage.getItem('tk');
   let authorization;
@@ -18,11 +18,11 @@ const Fetch = (url, method, sendData, callback, failed) => {
   } else {
   	request = {
   		method: method,
-  		headers: Object.assign(authorization, {
+  		headers: isFile ? {} : Object.assign(authorization, {
 				'Content-Type': 'application/json',
 				'Accept': 'application/json'
 			}),
-			body: JSON.stringify(sendData)
+			body: isFile ? sendData : JSON.stringify(sendData)
   	}
   }
 

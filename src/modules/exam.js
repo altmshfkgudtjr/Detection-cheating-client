@@ -58,63 +58,27 @@ export const setStudentList = (data) => ({ type: SET_STUDENT_LIST, payload: data
 */
 const initialState = {
 	selected_student: {
-		student_number: 12345678,
-		name: '홍길동',
-		video_path: '/videos/dynamite.mp4',
-		audio_path: '/sound.dynamite.wav',
-		state: 'pass',
-		reason: '사유',
-		network_result: ['Google','Naver','Daum','KaKaoTalk','Discord','Youtube','Github'],
-		audio_result: [[64, 78], [114, 128], [150, 178]],
-		audio_messages: ['가나다라', '1번 답이 뭐야?', '아 왜 이렇게 어렵냐'],
-		audio_playtime: 197.7,
-		audio_img_path: '/images/waveform.png',
-		eye_result: true,
+		student_number: 0,
+		name: '',
+		video_path: '',
+		audio_path: '',
+		state: '',
+		reason: '',
+		network_result: [],
+		audio_result: [],
+		audio_messages: [],
+		audio_playtime: 0,
+		audio_img_path: '',
+		eye_result: '0', // '0'
 		eye_ratio: {
-			left: 11,
-			right: 5,
-			center: 80,
-			blink: 4
-		}
+			left: 0,
+			right: 0,
+			center: 0,
+			blink: 0
+		},
+		time_range: [[0], [0]]
 	},
-	student_list: [	
-		{
-			student_number: 12345678,
-			name: '홍길동',
-			video_path: '',
-			audio_path: '',
-			state: 'pass',
-			reason: '',
-			network_result: [],
-			audio_result: [],
-			audio_img_path: '',
-			eye_result: true
-		},
-		{
-			student_number: 18000011,
-			name: '김철수',
-			video_path: '',
-			audio_path: '',
-			state: 'notyet',
-			reason: '',
-			network_result: [],
-			audio_result: [],
-			audio_img_path: '',
-			eye_result: true
-		},
-		{
-			student_number: 13210013,
-			name: '김영희',
-			video_path: '',
-			audio_path: '',
-			state: 'rejected',
-			reason: '',
-			network_result: [],
-			audio_result: [],
-			audio_img_path: '',
-			eye_result: true
-		}
-	]
+	student_list: [	]
 };
 
 

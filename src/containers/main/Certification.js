@@ -17,11 +17,8 @@ const Certification = ({ valid, setValid }) => {
 	const onClick = () => {
 		dispatch(pushModal(
 			'CERTIFICATION',
-			CertificationModal, 
-			{
-				setValid: setValid
-			}
-		));
+			CertificationModal
+		))
 	}
 
 	return (
@@ -29,7 +26,7 @@ const Certification = ({ valid, setValid }) => {
 			<RequirementInfo message="세종대학교 구성원 인증이 필요합니다" />
 			<RequirementBody>
 				<RequirementBtn color="red" message="학생 인증" onClick={onClick} />
-				<RequirementState state={valid} />
+				<RequirementState state={valid.id} />
 			</RequirementBody>
 		</RequirementWrapper>
 	);

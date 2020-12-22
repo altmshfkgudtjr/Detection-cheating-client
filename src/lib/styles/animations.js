@@ -159,6 +159,12 @@ const chartBar = keyframes`
 	100% { transform: scale(1, 1); }
 `;
 
+const timeExtend = keyframes`
+	0% { width: 0; }
+	50% { width: 0; }
+	100% { width: 30%; }
+`;
+
 const animations = {
 	fadeIn,
 	fadeOut,
@@ -176,7 +182,8 @@ const animations = {
 	zoomOut,
 	tooltip,
 	loading,
-	chartBar
+	chartBar,
+	timeExtend
 };
 
 export default animations

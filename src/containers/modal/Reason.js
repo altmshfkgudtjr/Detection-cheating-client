@@ -28,7 +28,7 @@ const Reason = ({ PreventModalOff, ModalOff }) => {
 		}
 
 		setLoading(true);
-		dispatch(scoreExam(student.student_number, false, reason))
+		dispatch(scoreExam(student.student_number, 'rejected', reason))
 		.then(res => {
 			if (!mountedRef.current) return;
 

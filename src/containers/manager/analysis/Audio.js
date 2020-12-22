@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 // components
 import Wrapper from 'components/manager/analysis/audio/Wrapper'
 import Waveform from 'components/manager/analysis/audio/Waveform'
@@ -9,24 +9,27 @@ import EmptyMessage from 'components/manager/analysis/EmptyMessage'
 // modules
 import { newSnackbar } from 'modules/snackbar'
 
-const Audio = ({ videoRef }) => {
+const Audio = ({ student, videoRef }) => {
 	const dispatch = useDispatch();
-	const student = useSelector(state => state.exam.selected_student);
 	const [message, setMessage] = useState('');
 	const [empty, setEmpty] = useState(true);
 	const pass_zones = [];
 	let std = 0;
 
 	student.audio_result.forEach(t => {
-		if (t[0] !== std) {
+		if (Number(t[0]) !== std) {
 			pass_zones.push([std, t[0]]);
 		}
-		std = t[1];
+		std = Number(t[1]);
 	});
 	if (student.audio_result.length === 0) {
 		pass_zones.push([0, student.audio_playtime]);
 	} else if (std !== 0 && std !== student.audio_playtime) {
 		pass_zones.push([std, student.audio_playtime]);
+	}
+
+	if (student.audio_result.length === 0) {
+		pass_zones.splice(0, pass_zones.length);
 	}
 
 	const onClickZone = (startTime, idx, pass) => {
@@ -48,21 +51,21 @@ const Audio = ({ videoRef }) => {
 	const RedZones = student.audio_result.map(
 		(r, idx) => <Zone key={idx}
 											pass={false}
-											start={Math.floor(r[0] / student.audio_playtime * 100)}
-											end={Math.floor(r[1] / student.audio_playtime * 100)}
+											start={Math.floor(Number(r[0]) / student.audio_playtime * 100)}
+											end={Math.floor(Number(r[1]) / student.audio_playtime * 100)}
 											onClick={() => onClickZone(Math.floor(r[0]), idx, false)} />
 	);
 
 	const GreenZones = pass_zones.map(
 		(r, idx) => <Zone key={idx}
 											pass={true}
-											start={Math.floor(r[0] / student.audio_playtime * 100)}
-											end={Math.floor(r[1] / student.audio_playtime * 100)}
+											start={Math.floor(Number(r[0]) / student.audio_playtime * 100)}
+											end={Math.floor(Number(r[1]) / student.audio_playtime * 100)}
 											onClick={() => onClickZone(Math.floor(r[0]), idx, true)} />
 	);
 
 	useEffect(() => {
-		if (!student.audio_result) {
+		if (student.audio_result.length === 0) {
 			setEmpty(true);
 		} else {
 			setEmpty(false);

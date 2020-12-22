@@ -37,7 +37,7 @@ const Board = ({ onToggleLoading }) => {
 		} else {
 			onToggleLoading(true);
 			setLoading(true);
-			dispatch(scoreExam(targetStudent.student_number, true, ''))
+			dispatch(scoreExam(targetStudent.student_number, 'pass', ''))
 			.then(() => {
 				onToggleLoading(false);
 				setLoading(false);
@@ -70,13 +70,13 @@ const Board = ({ onToggleLoading }) => {
 			<BoardLayout>
 				<AnalysisWrapper>
 					<AnalysisBox icon="network" title="네트워크 분석">
-						<Network/>
+						<Network student={targetStudent} />
 					</AnalysisBox>
 					<AnalysisBox icon="audio" title="오디오 분석">
-						<Audio videoRef={videoRef} />
+						<Audio student={targetStudent} videoRef={videoRef} />
 					</AnalysisBox>
 					<AnalysisBox icon="video" title="비디오 분석">
-						<Video />
+						<Video student={targetStudent} />
 					</AnalysisBox>
 					<AnalysisBox full={true}>
 						<PreviewVideo src={targetStudent.video_path}

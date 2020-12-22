@@ -13,12 +13,7 @@ import * as authUtils from 'lib/utils/authUtils'
 import { sejongOAuth } from 'modules/auth'
 import { newSnackbar } from 'modules/snackbar'
 
-/*
-	args: {
-		setValid: <Function>
-	}
-*/
-const Certification = ({ PreventModalOff, ModalOff, args }) => {
+const Certification = ({ PreventModalOff, ModalOff }) => {
 	const dispatch = useDispatch();
 	const idRef = useRef(null);
 	const pwRef = useRef(null);
@@ -80,10 +75,13 @@ const Certification = ({ PreventModalOff, ModalOff, args }) => {
 
 		setLoading(true);
 		dispatch(sejongOAuth(id, pw))
-		.then(() => {
+		.then(res => {
 			if (!mountedRef.current) return;
 			setLoading(false);
-			args.setValid(false);
+
+			if (res) {
+				ModalOff();
+			}
 		});
 	}
 
