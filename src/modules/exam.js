@@ -35,8 +35,10 @@ export const scoreExam = (id, pass, reason) => dispatch => {
 	return examAPI.ScroeExam(id, pass, reason).then(data => {
 		dispatch(newSnackbar("평가가 완료되었습니다", "success"));
 		dispatch(getStudentList());
+		return true;
 	}).catch(e => {
 		dispatch(newSnackbar("잠시 후 시도해주세요", "warning"));
+		return false;
 	});
 }
 
@@ -69,14 +71,13 @@ const initialState = {
 		audio_img_path: '/images/waveform.png',
 		eye_result: true,
 		eye_ratio: {
-			center: 85,
 			left: 11,
 			right: 5,
-			top: 5,
+			center: 80,
 			blink: 4
 		}
 	},
-	student_list: [
+	student_list: [	
 		{
 			student_number: 12345678,
 			name: '홍길동',

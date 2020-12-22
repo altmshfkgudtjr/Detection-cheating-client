@@ -5,3 +5,7 @@ export { ReactComponent as Network } from './Network.svg';
 export { ReactComponent as Video } from './Video.svg';
 export { ReactComponent as Menu } from './Menu.svg';
 export { ReactComponent as Close } from './Close.svg';
+export { ReactComponent as EyeLeft } from './EyeLeft.svg';
+export { ReactComponent as EyeRight } from './EyeRight.svg';
+export { ReactComponent as EyeCenter } from './EyeCenter.svg';
+export { ReactComponent as EyeBlink } from './EyeBlink.svg';

@@ -15,6 +15,7 @@ const Reason = ({ PreventModalOff, ModalOff }) => {
 	const dispatch = useDispatch();
 	const student = useSelector(state => state.exam.selected_student);
 	const inputRef = useRef(null);
+	const mountedRef = useRef(null);
 	const [reason, setReason] = useState('');
 	const [loading, setLoading] = useState(false);
 
@@ -28,9 +29,13 @@ const Reason = ({ PreventModalOff, ModalOff }) => {
 
 		setLoading(true);
 		dispatch(scoreExam(student.student_number, false, reason))
-		.then(() => {
+		.then(res => {
+			if (!mountedRef.current) return;
+
 			setLoading(false);
-			ModalOff();
+			if (res) {
+				ModalOff();
+			}
 		});
 	}
 
@@ -44,7 +49,7 @@ const Reason = ({ PreventModalOff, ModalOff }) => {
 	}
 
 	return (
-		<MiniModalWrapper onMouseDown={PreventModalOff}>
+		<MiniModalWrapper onMouseDown={PreventModalOff} ref={mountedRef}>
 			<Title message="사유 적기" />
 			<Textarea placeholder="불통과 된 이유를 적어주세요."
 								onKeyUp={onKeyUp}

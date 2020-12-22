@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 // lib
+import * as styles from 'lib/styles/styles'
 import palette from 'lib/styles/palette'
 
 const SubmitBtn = ({ color, message, onClick }) => {
@@ -14,6 +15,7 @@ const Btn = styled.button`
 	padding: 0;
 	border-radius: 12px;
 	background-color: ${props => palette[props.color]};
+	${styles.noselect};
 
 	&:hover {
 		filter: brightness(.95);

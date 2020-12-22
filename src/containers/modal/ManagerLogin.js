@@ -19,6 +19,7 @@ const ManagerLogin = ({ PreventModalOff, ModalOff }) => {
 	const dispatch = useDispatch();
 	const idRef = useRef(null);
 	const pwRef = useRef(null);
+	const mountedRef = useRef(null);
 	const [id, setId] = useState('');
 	const [pw, setPw] = useState('');
 	const [loading, setLoading] = useState(false);
@@ -77,6 +78,7 @@ const ManagerLogin = ({ PreventModalOff, ModalOff }) => {
 		setLoading(true);
 		dispatch(managerLogin(id, pw))
 		.then(res => {
+			if (!mountedRef.current) return;
 			setLoading(false);
 			
 			if (res) {
@@ -104,7 +106,7 @@ const ManagerLogin = ({ PreventModalOff, ModalOff }) => {
 	}
 
 	return (
-		<MiniModalWrapper onMouseDown={PreventModalOff}>
+		<MiniModalWrapper onMouseDown={PreventModalOff} ref={mountedRef}>
 			<InputId placeholder="관리자 ID" onKeyUp={onKeyUpId} ref={idRef} />
 			<InputPw placeholder="암호" onKeyUp={onKeyUpPw} ref={pwRef} />
 			<SubmitBtn color="blue" message="인증" onClick={onCertify} />

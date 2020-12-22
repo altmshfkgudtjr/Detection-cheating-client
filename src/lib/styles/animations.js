@@ -145,12 +145,18 @@ const tooltip = keyframes`
 	100% { opacity: 1; }
 `;
 
-const loading = keyframes `
+const loading = keyframes`
   0% { transform: scaleX(0) translateX(-200px); }
   30% { transform: scaleX(2) translate(-200px); }
   40% { transform: scaleX(2) translate(-200px); }
   80% { transform: scaleX(0) translate(-400px); }
   100% { transform: scaleX(0) translate(-200px); }
+`;
+
+const chartBar = keyframes`
+	0% { transform: scale(0, 0);  }
+	50% { transform: scale(0, 1); }
+	100% { transform: scale(1, 1); }
 `;
 
 const animations = {
@@ -169,7 +175,8 @@ const animations = {
 	zoomIn,
 	zoomOut,
 	tooltip,
-	loading
+	loading,
+	chartBar
 };
 
 export default animations

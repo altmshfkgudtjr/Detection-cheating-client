@@ -74,6 +74,7 @@ const Comment = styled.div`
 	font-weight: 600;
 	transition: .2s ${styles.transition};
 	white-space: nowrap;
+	${styles.noselect};
 `;
 
 const Info = styled.span`

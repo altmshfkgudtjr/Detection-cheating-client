@@ -18,6 +18,7 @@ const Btn = styled.button`
 	background-color: ${props => palette[props.color]};
 	padding: 0;
 	color: ${palette.white};
+	${styles.noselect};
 
 	&:hover {
 		filter: brightness(.95);

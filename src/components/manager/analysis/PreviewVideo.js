@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Video = ({ src }, ref) => {
+const PreviewVideo = ({ src }, ref) => {
 	return <Content src={src}
 									type="video/mp4"
 									controls
@@ -15,4 +15,4 @@ const Content = styled.video`
 	background-color: black;
 `;
 
-export default React.forwardRef(Video)
+export default React.forwardRef(PreviewVideo)

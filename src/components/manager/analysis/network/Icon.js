@@ -28,6 +28,7 @@ const Content = styled.img`
 	transition: .2s ${styles.transition};
 	animation: ${animations.zoomIn} .4s ease-in-out;
 	cursor: pointer;
+	${styles.noselect};
 
 	${media.small} {
 		width: 48px;

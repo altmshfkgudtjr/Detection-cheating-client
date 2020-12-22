@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 import ReasonModal from 'containers/modal/Reason'
 import Network from 'containers/manager/analysis/Network'
 import Audio from 'containers/manager/analysis/Audio'
+import Video from 'containers/manager/analysis/Video'
 // components
 import BoardWrapper from 'components/manager/board/BoardWrapper'
 import BoardLayout from 'components/manager/board/BoardLayout'
@@ -13,13 +14,13 @@ import AnalysisWrapper from 'components/manager/board/AnalysisWrapper'
 import AnalysisBox from 'components/manager/board/AnalysisBox'
 import SubmitBtnWrapper from 'components/manager/SubmitBtnWrapper'
 import SubmitBtn from 'components/manager/SubmitBtn'
-import Video from 'components/manager/analysis/Video'
+import PreviewVideo from 'components/manager/analysis/PreviewVideo'
 // modules
 import { scoreExam, getStudentList } from 'modules/exam'
 import { pushModal } from 'modules/modal'
 import { newSnackbar } from 'modules/snackbar'
 
-const Board = () => {
+const Board = ({ onToggleLoading }) => {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const targetStudent = useSelector(state => state.exam.selected_student);
@@ -34,9 +35,11 @@ const Board = () => {
 		} else if (loading) {
 			dispatch(newSnackbar("제출 중입니다", "error"));
 		} else {
+			onToggleLoading(true);
 			setLoading(true);
 			dispatch(scoreExam(targetStudent.student_number, true, ''))
 			.then(() => {
+				onToggleLoading(false);
 				setLoading(false);
 			});
 		}
@@ -69,12 +72,15 @@ const Board = () => {
 					<AnalysisBox icon="network" title="네트워크 분석">
 						<Network/>
 					</AnalysisBox>
-					<AnalysisBox icon="audio" title="오디오 분석" >
+					<AnalysisBox icon="audio" title="오디오 분석">
 						<Audio videoRef={videoRef} />
 					</AnalysisBox>
-					<AnalysisBox icon="video" title="비디오 분석" />
+					<AnalysisBox icon="video" title="비디오 분석">
+						<Video />
+					</AnalysisBox>
 					<AnalysisBox full={true}>
-						<Video src={targetStudent.video_path} ref={videoRef} />
+						<PreviewVideo src={targetStudent.video_path}
+													ref={videoRef} />
 					</AnalysisBox>
 				</AnalysisWrapper>
 				

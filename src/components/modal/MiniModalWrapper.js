@@ -6,8 +6,8 @@ import palette from 'lib/styles/palette'
 import animations from 'lib/styles/animations'
 import media from 'lib/styles/media'
 
-const MiniModalWrapper = ({ onMouseDown, children }) => {
-	return <Container onMouseDown={onMouseDown}>{children}</Container>;
+const MiniModalWrapper = ({ onMouseDown, children }, ref) => {
+	return <Container ref={ref} onMouseDown={onMouseDown}>{children}</Container>;
 }
 
 const Container = styled.div`
@@ -31,4 +31,4 @@ const Container = styled.div`
 	}
 `;
 
-export default MiniModalWrapper
+export default React.forwardRef(MiniModalWrapper)

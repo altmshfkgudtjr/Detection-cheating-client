@@ -22,6 +22,7 @@ const Certification = ({ PreventModalOff, ModalOff, args }) => {
 	const dispatch = useDispatch();
 	const idRef = useRef(null);
 	const pwRef = useRef(null);
+	const mountedRef = useRef(null);
 	const [id, setId] = useState('');
 	const [pw, setPw] = useState('');
 	const [loading, setLoading] = useState(false);
@@ -80,6 +81,7 @@ const Certification = ({ PreventModalOff, ModalOff, args }) => {
 		setLoading(true);
 		dispatch(sejongOAuth(id, pw))
 		.then(() => {
+			if (!mountedRef.current) return;
 			setLoading(false);
 			args.setValid(false);
 		});
@@ -104,7 +106,7 @@ const Certification = ({ PreventModalOff, ModalOff, args }) => {
 	}
 
 	return (
-		<MiniModalWrapper onMouseDown={PreventModalOff}>
+		<MiniModalWrapper onMouseDown={PreventModalOff} ref={mountedRef}>
 			<InputId placeholder="세종대학교 포털 ID" onKeyUp={onKeyUpId} ref={idRef} />
 			<InputPw placeholder="암호" onKeyUp={onKeyUpPw} ref={pwRef} />
 			<SubmitBtn color="sejong" message="인증" onClick={onCertify} />

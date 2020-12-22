@@ -20,6 +20,7 @@ const Btn = styled.button`
 	border-radius: 16px;
 	transition: .2s ${styles.transition};
 	color: ${palette.white};
+	${styles.noselect};
 	
 	${media.small} {
 		height: 40px;

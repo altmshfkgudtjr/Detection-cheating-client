@@ -19,6 +19,7 @@ const Btn = styled.button`
 	border-radius: 12px;
 	transition: .2s ${styles.transition};
 	color: ${palette.white};
+	${styles.noselect};
 	
 	${media.small} {
 		width: 120px;
