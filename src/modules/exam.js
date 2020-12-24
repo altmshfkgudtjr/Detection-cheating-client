@@ -69,7 +69,7 @@ const initialState = {
 		audio_messages: [],
 		audio_playtime: 0,
 		audio_img_path: '',
-		eye_result: '0', // '0'
+		eye_result: '0', // '1'
 		eye_ratio: {
 			left: 0,
 			right: 0,

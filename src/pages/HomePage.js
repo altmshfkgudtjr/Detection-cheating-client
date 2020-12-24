@@ -7,7 +7,7 @@ import Footer from 'containers/Footer'
 const HomePage = () => {
 	return (<>
 		<Helmet>
-			<title>긍정행위</title>
+			<title>Detection-Cheating</title>
 		</Helmet>
 
 		<Main />

@@ -1,6 +1,6 @@
 {
-  "short_name": "긍정행위",
-  "name": "AI 비대면 시험 보조 감독관 - 긍정행위",
+  "short_name": "Detection-Cheating",
+  "name": "AI 비대면 시험 보조 감독관",
   "icons": [
     {
       "src": "favicons/favicon_96x96.png",

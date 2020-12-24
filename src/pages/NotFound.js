@@ -9,7 +9,7 @@ import palette from 'lib/styles/palette'
 function NoPage() {
 	return (<>
 		<Helmet>
-			<title>APP-NAME - 404</title>
+			<title>Detection-Cheating - 404</title>
 		</Helmet>
 
 		<Title>404 Not Found.</Title>

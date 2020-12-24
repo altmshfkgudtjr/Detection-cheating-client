@@ -10,7 +10,7 @@ const Video = ({ student }) => {
 
 
 	useEffect(() => {
-		if (student.eye_result == '0') {
+		if (student.eye_result === '0') {
 			setEmpty(true);
 		} else {
 			setEmpty(false);
