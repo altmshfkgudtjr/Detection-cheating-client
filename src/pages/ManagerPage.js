@@ -23,7 +23,7 @@ const ManagerPage = () => {
 
 	return (<>
 		<Helmet>
-			<title>Detection-Cheating - Management</title>
+			<title>AI 온라인 감독 - 관리</title>
 		</Helmet>
 
 		<Layout>

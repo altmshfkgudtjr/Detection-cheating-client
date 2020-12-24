@@ -5,7 +5,7 @@ import media from 'lib/styles/media'
 import palette from 'lib/styles/palette'
 
 const Copyright = () => {
-	return <Btn>© 긍정행위, 2020 All Rights Reserved.</Btn>;
+	return <Btn>© NB, 2020 All Rights Reserved.</Btn>;
 }
 
 const Btn = styled.span`

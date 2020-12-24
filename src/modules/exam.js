@@ -62,21 +62,21 @@ const initialState = {
 		name: '',
 		video_path: '',
 		audio_path: '',
-		state: '',
+		state: 'notyet',
 		reason: '',
 		network_result: [],
 		audio_result: [],
 		audio_messages: [],
 		audio_playtime: 0,
-		audio_img_path: '',
-		eye_result: '0', // '1'
+		audio_img_path: '/images/waveform.png',
+		eye_result: '0',
 		eye_ratio: {
 			left: 0,
 			right: 0,
 			center: 0,
 			blink: 0
 		},
-		time_range: [[0], [0]]
+		time_range: [['0'], ['0']]
 	},
 	student_list: [	]
 };

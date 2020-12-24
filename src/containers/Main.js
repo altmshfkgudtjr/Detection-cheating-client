@@ -28,7 +28,7 @@ const Main = () => {
 	const studentAuth = useSelector(state => state.auth.auth);
 
 	const onHelp = () => {
-		dispatch(newSnackbar(`※ 사용 가이드라인 ※\n\n\n● Wireshark 프로그램이 필요해요!\n\n● 불필요한 모든 응용 프로그램을 종료해주세요!\n\n● 반드시 화면을 정면을 바라봐주세요!\n\n● 잡음이 녹음되지 않도록 주의하세요!\n\n● 영상 확장자가 mp4인지 확인해주세요!\n\n\n긍정행위는 당신의 시험의 합격을 기원합니다.\n\n`, "info"));
+		dispatch(newSnackbar(`※AI 온라인 감독 사용 가이드라인 ※\n\n\n● Wireshark 프로그램이 필요해요!\n\n● 불필요한 모든 응용 프로그램을 종료해주세요!\n\n● 반드시 화면을 정면을 바라봐주세요!\n\n● 잡음이 녹음되지 않도록 주의하세요!\n\n● 영상 확장자가 mp4인지 확인해주세요!\n\n\n긍정행위는 당신의 시험의 합격을 기원합니다.\n\n`, "info"));
 	}
 
 	const onSubmit = useCallback(() => {
@@ -73,9 +73,9 @@ const Main = () => {
 	return (
 		<Wrapper> 
 			<HelpBtn onClick={onHelp} />
-			<Title title="Detection-Cheating"
+			<Title title="AI 온라인 감독"
 						 subTitle="당신의 시험, 긍정하신가요?"
-						 info={`비대면 시험 환경에서 부정행위를 감지합니다.\n이를 통해, Detection-Cheating은 올바른 온라인 시험 문화를 만들어갑니다.`} />
+						 info={`비대면 시험 환경에서 부정행위를 감지합니다.\n이를 통해, AI 온라인 감독은 올바른 온라인 시험 문화를 만들어갑니다.`} />
 
 			<Certification valid={studentAuth} />
 			<Network valid={!!pcapngFile} onChange={onChangeNetwork} fileName={pcapngName}
